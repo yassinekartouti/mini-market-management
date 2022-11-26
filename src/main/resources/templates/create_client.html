@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Client Management System</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Client Management System</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/clients}">Client Management</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+	<div class = "container">
+		<div class = "row">
+			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class = "text-center"> Create New Client </h1>
+				<div class = "card-body">
+					<form th:action="@{/clients}" th:object = "${client}" method="POST">
+						<div class ="form-group">
+							<label> Nom Client </label>
+							<input
+							type = "text"
+							name = "nom_cli"
+							th:field = "*{nom_cli}"
+							class = "form-control"
+							placeholder="Entrer le nom de client" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Prenom Client </label>
+							<input
+							type = "text"
+							name = "pre_cli"
+							th:field = "*{pre_cli}"
+							class = "form-control"
+							placeholder="Entrer Prenom Client" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Adresse Client </label>
+							<input
+							type = "text"
+							name = "adr_cli"
+							th:field = "*{adr_cli}"
+							class = "form-control"
+							placeholder="Entrer Adresse Client" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Tel Client </label>
+							<input
+							type = "text"
+							name = "tel_cli"
+							th:field = "*{tel_cli}"
+							class = "form-control"
+							placeholder="Entrer Tel Client" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Ville Client </label>
+							<input
+							type = "text"
+							name = "ville_cli"
+							th:field = "*{ville_cli}"
+							class = "form-control"
+							placeholder="Entrer Ville Client" 
+							/>
+						</div>
+						
+						<div class = "box-footer">
+							<button type="submit" class = "btn btn-primary">
+								Submit
+							</button>
+						</div>
+					</form>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
