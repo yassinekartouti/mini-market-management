@@ -1,5 +1,6 @@
 package net.javaguides.sms.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,13 +9,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import net.javaguides.sms.entity.LigneCmd;
+import net.javaguides.sms.service.ArticleService;
 import net.javaguides.sms.service.LigneCmdService;
 
 @Controller
 public class LigneCmdController {
 	
 	private LigneCmdService ligneCmdService;
-
+	@Autowired
+	private ArticleService articleService;
 	public LigneCmdController(LigneCmdService ligneCmdService) {
 		super();
 		this.ligneCmdService =ligneCmdService;
@@ -29,7 +32,7 @@ public class LigneCmdController {
 	
 	@GetMapping("/ligneCmds/new")
 	public String createLigneCmdForm(Model model) {
-		
+		model.addAttribute("listArticle", articleService.getAllArticles());	
 		// create student object to hold student form data
 		LigneCmd ligneCmd = new LigneCmd();
 		model.addAttribute("ligneCmd", ligneCmd);

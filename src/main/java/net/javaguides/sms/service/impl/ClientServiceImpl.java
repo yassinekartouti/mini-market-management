@@ -2,6 +2,7 @@ package net.javaguides.sms.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.javaguides.sms.entity.Client;
@@ -10,7 +11,7 @@ import net.javaguides.sms.service.ClientService;
 
 @Service
 public class ClientServiceImpl implements ClientService{
-
+@Autowired
 	private ClientRepository clientRepository;
 	
 	public ClientServiceImpl(	ClientRepository clientRepository) {

@@ -36,13 +36,13 @@
 				<div class = "card-body">
 					<form th:action="@{/ligneCmds}" th:object = "${ligneCmd}" method="POST">
 						<div class ="form-group">
-							<label> Qtantité Livraison </label>
+							<label> Qtantite Livraison </label>
 							<input
 							type = "text"
 							name = "qte_cmd"
 							th:field = "*{qte_cmd}"
 							class = "form-control"
-							placeholder="Entrer la quantité de livraison" 
+							placeholder="Entrer la quantitï¿½ de livraison" 
 							/>
 						</div>
 						
@@ -59,13 +59,10 @@
 						
 						<div class ="form-group">
 							<label> Article </label>
-							<input
-							type = "text"
-							name = "article"
-							th:field = "*{article}"
-							class = "form-control"
-							placeholder="Entrer l'article" 
-							/>
+							<select class="form-control" style="width:200px" id="article" name="article"> 
+					<option value="0">Select client</option>
+					<option th:each="article : ${listArticle}" th:value="${article.cod_art}" th:text="${article.nom_art}"></option> 
+					</select>
 						</div>
 						
 						

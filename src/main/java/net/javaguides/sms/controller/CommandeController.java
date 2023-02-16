@@ -1,5 +1,6 @@
 package net.javaguides.sms.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,13 +9,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import net.javaguides.sms.entity.Commande;
+import net.javaguides.sms.service.ClientService;
 import net.javaguides.sms.service.CommandeService;
 
 @Controller
 public class CommandeController {
 	
 	private CommandeService commandeService;
-
+	@Autowired
+	private ClientService clientService;
 	public CommandeController(CommandeService commandeService) {
 		super();
 		this.commandeService = commandeService;
@@ -29,6 +32,7 @@ public class CommandeController {
 	
 	@GetMapping("/commandes/new")
 	public String createCommandeForm(Model model) {
+		model.addAttribute("listClient",clientService.getAllClients());
 		
 		// create student object to hold student form data
 		Commande commande = new Commande();
@@ -40,7 +44,7 @@ public class CommandeController {
 	@PostMapping("/commandes")
 	public String saveCommande(@ModelAttribute("commande") Commande commande) {
 		commandeService.saveCommande(commande);
-		return "redirect:/commandes";
+		return "redirect:/ligneCmds/new";
 	}
 	
 	@GetMapping("/commandes/edit/{id}")

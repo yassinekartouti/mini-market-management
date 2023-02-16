@@ -42,7 +42,7 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return "Client [nom_cli=" + nom_cli + "]";
+		return pre_cli+ nom_cli ;
 	}
 
 	public Client() {

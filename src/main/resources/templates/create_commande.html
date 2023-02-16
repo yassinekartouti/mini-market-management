@@ -38,7 +38,7 @@
 						<div class ="form-group">
 							<label> Date Commande </label>
 							<input
-							type = "text"
+							type = "date"
 							name = "date_cmd"
 							th:field = "*{date_cmd}"
 							class = "form-control"
@@ -47,15 +47,13 @@
 						</div>
 						
 						<div class ="form-group">
-							<label>  Client </label>
-							<input
-							type = "text"
-							name = "client"
-							th:field = "*{client}"
-							class = "form-control"
-							placeholder="Entre Code Prenom Client" 
-							/>
+					<label> Client </label>
+				<select class="form-control" style="width:200px" id="client" name="client"> 
+					<option value="0">Select client</option>
+					<option th:each="client : ${listClient}" th:value="${client.cod_cli}" th:text="${client.nom_cli} + ' ' +${client.pre_cli}"></option> 
+					</select>
 						</div>
+
 						
 						
 						
