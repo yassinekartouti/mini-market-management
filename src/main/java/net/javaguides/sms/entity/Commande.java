@@ -36,7 +36,7 @@ public class Commande {
 	
 	@Override
 	public String toString() {
-		return "Commande [num_cmd=" + num_cmd + "]";
+		return ""+num_cmd;
 	}
 
 

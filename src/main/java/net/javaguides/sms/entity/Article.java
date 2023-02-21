@@ -40,7 +40,7 @@ public class Article {
 
     @Override
 	public String toString() {
-		return "Article [nom_art=" + nom_art + "]";
+		return "" + nom_art;
 	}
 
 	public Article() {
